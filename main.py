@@ -35,6 +35,7 @@ for root, dirs, files in os.walk(working_path):
                     error = False
                     while response is None and retries < 3:
                         try:
+                            print(f'Processing file {filepath}')
                             response = openai.Completion.create(
                                 engine=model_engine,
                                 prompt=prompt + code, max_tokens=500, n=1, stop=None, temperature=0.7)
